@@ -54,5 +54,7 @@ jobs:
             
             # Restart Backend
             cd ../backend
+            echo "PORT=${{ secrets.PORT }}" > .env
+            echo "MONGODB_URI=${{ secrets.MONGO_URI }}" >> .env
             npm install
             pm2 restart ideavault
