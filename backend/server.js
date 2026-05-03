@@ -38,7 +38,11 @@ app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend Server started on port ${PORT}`);
-  console.log(`Frontend is being served at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Backend Server started on port ${PORT}`);
+    console.log(`Frontend is being served at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
