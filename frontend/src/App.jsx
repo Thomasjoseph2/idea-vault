@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Lightbulb, Trash2, Plus, Server, Cloud } from 'lucide-react';
 import './index.css';
 
-// Using environment variable for API URL to allow easy switching between local and EC2
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/ideas';
+// Intelligently switch between local development URL and relative production URL
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:5000/api/ideas' : '/api/ideas');
 
 function App() {
   const [ideas, setIdeas] = useState([]);
