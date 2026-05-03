@@ -14,8 +14,8 @@ app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ideavault')
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('Could not connect to MongoDB:', err));
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Could not connect to MongoDB:', err));
 
 // Routes
 const ideasRouter = require('./routes/ideas');
@@ -40,8 +40,8 @@ app.use((req, res) => {
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`Backend Server started on port ${PORT}`);
-    console.log(`Frontend is being served at http://localhost:${PORT}`);
+    console.log(`Backend Server started on port- ${PORT}`);
+    console.log(`Frontend is being served at - http://localhost:${PORT}`);
   });
 }
 
