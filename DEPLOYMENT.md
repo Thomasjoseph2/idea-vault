@@ -1,5 +1,5 @@
 # Node.js Full Stack Deployment Guide
-Steps to deploy a Node.js/React app to an AWS EC2 instance using PM2, NGINX as a reverse proxy, and SSL from LetsEncrypt.
+Steps to deploy a Node.js/React app to an AWS EC2 instance using PM2, NGINX as a reverse proxy, and TLS/SSL certificates from LetsEncrypt.
 
 ## 1. Create Free AWS Account
 Create a free AWS Account at https://aws.amazon.com/
@@ -107,7 +107,7 @@ Restart NGINX to apply changes:
 sudo systemctl reload nginx
 ```
 
-## 8. Add SSL with LetsEncrypt
+## 8. Add TLS/SSL with LetsEncrypt
 *(You must have pointed an A-Record from your DNS provider to your EC2 IP before doing this)*
 
 Install Certbot:
@@ -116,7 +116,7 @@ sudo apt update
 sudo apt install -y certbot python3-certbot-nginx
 ```
 
-Generate the SSL certificates (Certbot will automatically configure your NGINX files to redirect HTTP to HTTPS):
+Generate the TLS/SSL certificates (Certbot will automatically configure your NGINX files to redirect HTTP to HTTPS):
 ```bash
 sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
 ```
