@@ -2,10 +2,13 @@ const test = require('node:test');
 const assert = require('assert');
 const request = require('supertest');
 const mongoose = require('mongoose');
+
 const app = require('./server'); // Import the Express app
 
 test('API Integration Tests', async (t) => {
+
   // Test 1: Health Check Endpoint
+
   await t.test('GET /health returns 200 OK', async () => {
     const response = await request(app).get('/health');
     assert.strictEqual(response.status, 200, 'Expected status to be 200');
